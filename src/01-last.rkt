@@ -1,9 +1,9 @@
 #lang racket
 
-(provide my-last)
+(provide 99/last)
 
-(define (my-last a-list)
+(define (99/last a-list)
   (let ([list-rest (cdr a-list)])
     (if (empty? list-rest)
         (car a-list)
-        (my-last list-rest))))
+        (99/last list-rest))))
