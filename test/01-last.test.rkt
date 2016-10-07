@@ -16,13 +16,13 @@
 
    (test-case
        "should return single element when list has one element"
-     (check-equal? 1 (99/last '(1))))
+     (check-equal? (99/last '(1)) 1))
    (test-case
        "should return second element when list has two elements"
-     (check-equal? 2 (99/last '(1 2))))
+     (check-equal? (99/last '(1 2)) 2))
    (test-case
        "should return last element in long list"
-     (check-equal? 9 (99/last '(1 2 3 4 5 6 7 8 9))))
+     (check-equal? (99/last '(1 2 3 4 5 6 7 8 9)) 9))
 
    (test-case
        "should match output of default `last`"
