@@ -4,28 +4,28 @@
  rackunit
  rackunit/quickcheck
  rackunit/text-ui
- "../src/02-but-last.rkt")
+ "../src/02-last-two.rkt")
 
 (define matches-reverse-take-2-reverse
   (property ([my-list (choose-list (choose-integer 0 1000) 400)])
-            (equal? (reverse (take (reverse my-list) 2)) (99/but-last my-list))))
+            (equal? (reverse (take (reverse my-list) 2)) (99/last-two my-list))))
 
-(define 99/but-last-tests
+(define 99/last-two-tests
   (test-suite
-   "99/but-last"
+   "99/last-two"
 
    (test-case
        "should return only two elements when list has two elements"
-     (check-equal? (99/but-last '(1 2)) '(1 2)))
+     (check-equal? (99/last-two '(1 2)) '(1 2)))
    (test-case
        "should return last two elements when list has three elements"
-     (check-equal? (99/but-last '(1 2 3)) '(2 3)))
+     (check-equal? (99/last-two '(1 2 3)) '(2 3)))
    (test-case
        "should return last two elements in long list"
-     (check-equal? (99/but-last '(1 2 3 4 5 6 7 8 9 10 11 12 13 14)) '(13 14)))
+     (check-equal? (99/last-two '(1 2 3 4 5 6 7 8 9 10 11 12 13 14)) '(13 14)))
 
    (test-case
        "should match output of (reverse (take (reverse lst) 2))"
      (check-property matches-reverse-take-2-reverse))))
 
-(run-tests 99/but-last-tests)
+(run-tests 99/last-two-tests)
